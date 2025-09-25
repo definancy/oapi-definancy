@@ -1558,9 +1558,7 @@ components:
     "MediaType":
       type: string
       enum:
-        - "unknown"
         - "image"
-      default: "unknown"
     "MediaMetadata":
       type: object
 
@@ -1594,10 +1592,8 @@ components:
         - 'crypto-address': Simple wallet address QR code
         - 'crypto-payment': Payment request with embedded amount and asset details
       enum:
-        - "unknown"
         - "crypto-address"
         - "crypto-payment"
-      default: "unknown"
     "QrCodeEncoding":
       type: string
       description: |-
@@ -1605,9 +1601,7 @@ components:
         Currently supports raw byte encoding for maximum compatibility 
         with cryptocurrency wallets.
       enum:
-        - "unknown"
         - "byte"
-      default: "unknown"
     "QrCodeMetadata":
       type: object
       description: |-
@@ -1723,11 +1717,9 @@ components:
         Operational status of a blockchain network indicating its availability
         for new operations and payment processing.
       enum:
-        - "unknown"
         - "active" # Network is fully operational and accepting new transactions
         - "inactive" # Network is temporarily disabled but may be reactivated
         - "discontinued" # Network is permanently discontinued and will not be reactivated
-      default: "unknown"
     "NetworkInfo":
       type: object
       description: |-
@@ -1819,11 +1811,9 @@ components:
       description: |-
         Operational status of digital asset.
       enum:
-        - "unknown"
         - "active"
         - "inactive"
         - "discontinued"
-      default: "unknown"
     "AssetInfo":
       type: object
       description: |-
@@ -1922,11 +1912,9 @@ components:
         Operational status of a contract indicating its availability
         for payment processing.
       enum:
-        - "unknown"
         - "active" # Contract is fully operational and available for payment processing
         - "inactive" # Contract is disabled but may be reactivated
         - "discontinued" # Contract is permanently discontinued and will not be reactivated
-      default: "unknown"
     "ContractInfo":
       type: object
       description: |-
@@ -2119,11 +2107,9 @@ components:
       description: |-
         Compliance document classification.
       enum:
-        - "unknown"
         - "PersonV1"
         - "CustodialV1"
         - "NonCustodialV1"
-      default: "unknown"
     "DocumentData":
       type: object
       oneOf:
@@ -2149,13 +2135,11 @@ components:
       description: |-
         Document validation status category.
       enum:
-        - "unknown"
         - "pending"
         - "expired"
         - "accepted"
         - "rejected"
         - "archived"
-      default: "unknown"
     "DocumentStatusDetails":
       type: string
       description: |-
@@ -2187,10 +2171,8 @@ components:
       description: |-
         Person entity classification.
       enum:
-        - "unknown"
         - "PersonNaturalV1"
         - "PersonLegalV1"
-      default: "unknown"
     "PersonName":
       type: string
       description: |-
@@ -2258,10 +2240,8 @@ components:
       description: |-
         Identification document type.
       enum:
-        - "unknown"
         - "NationalIdentityCard"
         - "Passport"
-      default: "unknown"
     "PersonNaturalIdIssuer":
       type: string
       description: |-
@@ -2335,9 +2315,7 @@ components:
         verification. Currently limited to tax identification documents 
         but may be expanded to include other business registration types.
       enum:
-        - "unknown"
         - "TaxId"
-      default: "unknown"
     "PersonLegalIdIssuer":
       type: string
       description: |-
@@ -2453,10 +2431,8 @@ components:
         necessary documents have been submitted and validated for a specific 
         contract scenario.
       enum:
-        - "unknown"
         - "pending"
         - "accepted"
-      default: "unknown"
 
     # Vault - Payment - Estimate
     "PaymentEstimate":
@@ -2665,14 +2641,12 @@ components:
         stages in the payment lifecycle from compliance verification through 
         final confirmation or cancellation.
       enum:
-        - "unknown"
         - "compliance"
         - "waiting"
         - "confirming"
         - "confirmed"
         - "expired"
         - "cancelled"
-      default: "unknown"
     "PaymentAcceptanceStatusDetails":
       type: string
       description: |-
@@ -2731,7 +2705,6 @@ components:
         from compliance verification through transaction confirmation or 
         refund processing.
       enum:
-        - "unknown"
         - "compliance"
         - "waiting"
         - "confirming"
@@ -2739,7 +2712,6 @@ components:
         - "expired"
         - "refunding"
         - "refunded"
-      default: "unknown"
 
     # Blockchain
     "BlockchainTransactionId":
@@ -2755,12 +2727,10 @@ components:
         Current confirmation status of a blockchain transaction indicating
         its processing state from initial detection through final confirmation.
       enum:
-        - "unknown"
         - "compliance" # Transaction detected but compliance verification required
         - "waiting" # Transaction submitted to network, awaiting initial confirmation
         - "confirming" # Transaction confirmed but waiting for additional confirmations
         - "confirmed" # Transaction fully confirmed with sufficient network consensus
-      default: "unknown"
     "BlockchainConfirmations":
       type: integer
       description: |-
