@@ -2090,18 +2090,6 @@ components:
       required:
         - "vault"
         - "status"
-    "DocumentConfig":
-      type: object
-      description: |-
-        Document content specification.
-      properties:
-        "type":
-          $ref: "#/components/schemas/DocumentType"
-        "data":
-          $ref: "#/components/schemas/DocumentData"
-      required:
-        - "type"
-        - "data"
     "DocumentType":
       type: string
       description: |-
@@ -2110,12 +2098,51 @@ components:
         - "PersonV1"
         - "CustodialV1"
         - "NonCustodialV1"
-    "DocumentData":
+    "DocumentConfig":
       type: object
-      oneOf:
-        - $ref: "#/components/schemas/PersonV1"
-        - $ref: "#/components/schemas/CustodialV1"
-        - $ref: "#/components/schemas/NonCustodialV1"
+      description: |-
+        Document content specification.
+      properties:
+        "type":
+          $ref: "#/components/schemas/DocumentType"
+      required:
+        - "type"
+      discriminator:
+        propertyName: "type"
+        mapping:
+          "PersonV1": "#/components/schemas/DocumentConfigPersonV1"
+          "CustodialV1": "#/components/schemas/DocumentConfigCustodialV1"
+          "NonCustodialV1": "#/components/schemas/DocumentConfigNonCustodialV1"
+    "DocumentConfigPersonV1":
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/DocumentConfig"
+        - type: object
+          properties:
+            "data":
+              $ref: "#/components/schemas/PersonV1"
+          required:
+            - "data"
+    "DocumentConfigCustodialV1":
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/DocumentConfig"
+        - type: object
+          properties:
+            "data":
+              $ref: "#/components/schemas/CustodialV1"
+          required:
+            - "data"
+    "DocumentConfigNonCustodialV1":
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/DocumentConfig"
+        - type: object
+          properties:
+            "data":
+              $ref: "#/components/schemas/NonCustodialV1"
+          required:
+            - "data"
     "DocumentStatus":
       type: object
       description: |-
