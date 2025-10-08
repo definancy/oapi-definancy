@@ -1695,7 +1695,7 @@ components:
         Examples include 'ethereum' for Ethereum, 'algorand' for Algorand,
         or 'bitcoin' for Bitcoin. Used throughout the API to specify which 
         network operations should target.
-      pattern: "^[a-z0-9]+$"
+      pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
       minLength: 1
       maxLength: 32
     "NetworkMediaMap":
