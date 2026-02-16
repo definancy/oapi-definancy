@@ -1924,7 +1924,7 @@ components:
           properties:
             "payment-acceptance-price-trait":
               $ref: "#/components/schemas/PaymentAcceptancePriceTrait"
-            "payment-acceptance-payment-trait":
+            "payment-acceptance-pay-trait":
               $ref: "#/components/schemas/PaymentAcceptancePayTrait"
     "ContractMediaMap":
       type: object
