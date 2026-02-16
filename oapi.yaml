@@ -1648,14 +1648,14 @@ components:
     "TraitProperties":
       type: object
       additionalProperties: true
-    "AcceptancePriceTrait":
+    "PaymentAcceptancePriceTrait":
       type: object
       properties:
         "min-amount":
           $ref: "#/components/schemas/Amount"
         "max-amount":
           $ref: "#/components/schemas/Amount"
-    "AcceptancePaymentTrait":
+    "PaymentAcceptancePayTrait":
       type: object
       properties:
         "min-amount":
@@ -1922,10 +1922,10 @@ components:
         - $ref: "#/components/schemas/Traits"
         - type: object
           properties:
-            "AcceptancePriceTrait":
-              $ref: "#/components/schemas/AcceptancePriceTrait"
-            "AcceptancePaymentTrait":
-              $ref: "#/components/schemas/AcceptancePaymentTrait"
+            "payment-acceptance-price-trait":
+              $ref: "#/components/schemas/PaymentAcceptancePriceTrait"
+            "payment-acceptance-payment-trait":
+              $ref: "#/components/schemas/PaymentAcceptancePayTrait"
     "ContractMediaMap":
       type: object
       allOf:
